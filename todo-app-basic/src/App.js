@@ -1,20 +1,20 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./styles/App.scss";
+import background from "./assets/images/background.jpg";
+import Todo from "./components/todos";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello world!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header
+        className="App-header"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <Todo />
       </header>
     </div>
   );
