@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/Todo.scss";
+import AddTodo from "./addTodo";
+import ClearTodo from "./clearTodo";
 
 class ListItems extends React.Component {
   state = {
@@ -28,10 +30,17 @@ class ListItems extends React.Component {
   handleShowDescription = (item) => {
     console.log(item);
   };
+  addNewTodo = (todo) => {
+    this.setState({
+      listTodo: [...this.state.listTodo, todo],
+    });
+  };
   render() {
     let { listTodo } = this.state;
     return (
       <div className="listItems">
+        <h3>TO-DO LIST</h3>
+        <AddTodo addNewTodo={this.addNewTodo} />
         <h5>List Items</h5>
         {listTodo.map((item, index) => {
           return (
@@ -63,6 +72,8 @@ class ListItems extends React.Component {
             </div>
           );
         })}
+
+        <ClearTodo />
       </div>
     );
   }

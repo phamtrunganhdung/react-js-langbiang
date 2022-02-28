@@ -1,6 +1,7 @@
 import "./styles/App.scss";
 import background from "./assets/images/background.jpg";
-import Todo from "./components/todos";
+
+import ListItems from "./components/listItems";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <Todo />
+        <ListItems />
       </header>
     </div>
   );

@@ -1,10 +1,50 @@
-.todo {
+.listItems {
   color: black;
   background-color: white;
-  width: 700px;
+  width: 500px;
   height: 600px;
   margin: 20px;
 
+  h5 {
+    color: green;
+    font-style: italic;
+    text-align: left;
+    margin-left: 50px;
+  }
+
+  .items {
+    border-bottom: 1px solid #aaa;
+
+    input {
+      width: 50px;
+      height: 20px;
+    }
+
+    button {
+      background-color: transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+    }
+
+    .todoTitle {
+      width: 250px;
+      height: 30px;
+      color: black;
+      border: none;
+      background-color: transparent;
+    }
+
+    .todoDescription {
+      width: 400px;
+      height: 30px;
+      color: black;
+      border: none;
+      background-color: transparent;
+    }
+  }
   input {
     width: 300px;
     height: 30px;
@@ -21,56 +61,10 @@
     }
   }
 
-  .listItems {
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-top: 20px;
-    text-align: left;
-
-    h5 {
-      color: green;
-      font-style: italic;
-    }
-
-    .items {
-      border-bottom: 1px solid #aaa;
-
-      input {
-        width: 50px;
-        height: 20px;
-      }
-
-      button {
-        background-color: transparent;
-        background-repeat: no-repeat;
-        border: none;
-        cursor: pointer;
-        overflow: hidden;
-        outline: none;
-      }
-
-      .todoTitle {
-        width: 250px;
-        height: 30px;
-        color: black;
-        border: none;
-        background-color: transparent;
-      }
-
-      .todoDescription {
-        width: 400px;
-        height: 30px;
-        color: black;
-        border: none;
-        background-color: transparent;
-      }
-    }
-  }
-
   .clearTodo {
     margin-top: 50px;
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 50px;
+    margin-right: 50px;
     display: flex;
     justify-content: space-between;
   }
