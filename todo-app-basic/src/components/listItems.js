@@ -10,31 +10,49 @@ class ListItems extends React.Component {
         id: "todo1",
         title: "Read React book",
         description: "spend 2 hours reading book every day",
+        checkTitle: false,
         showDescription: false,
       },
       {
         id: "todo2",
         title: "Play football",
         description: "play from 4-5 pm",
+        checkTitle: false,
         showDescription: false,
       },
       {
         id: "todo3",
         title: "Do homework",
         description: "finish homework",
+        checkTitle: false,
         showDescription: false,
       },
     ],
   };
 
   handleShowDescription = (item) => {
-    console.log(item);
+    let showDes = document.getElementById("des" + item.id);
+    item.showDescription = !item.showDescription;
+    item.showDescription === false
+      ? (showDes.style.display = "none")
+      : (showDes.style.display = "block");
+  };
+  handleCheck = (item) => {
+    let checkTit = document.getElementById("tit" + item.id);
+    let checkDes = document.getElementById("des" + item.id);
+    item.checkTitle = !item.checkTitle;
+    item.checkTitle === false
+      ? (checkTit.style.textDecoration = "none") &&
+        (checkDes.style.textDecoration = "none")
+      : (checkTit.style.textDecoration = "line-through") &&
+        (checkDes.style.textDecoration = "line-through");
   };
   addNewTodo = (todo) => {
     this.setState({
       listTodo: [...this.state.listTodo, todo],
     });
   };
+
   render() {
     let { listTodo } = this.state;
     return (
@@ -45,10 +63,10 @@ class ListItems extends React.Component {
         {listTodo.map((item, index) => {
           return (
             <div className="items" key={item.id}>
-              <input type="checkbox" />
+              <input type="checkbox" onChange={() => this.handleCheck(item)} />
               <input
                 className="todoTitle"
-                id={"title" + item.id}
+                id={"tit" + item.id}
                 type="text"
                 value={item.title}
                 disabled
