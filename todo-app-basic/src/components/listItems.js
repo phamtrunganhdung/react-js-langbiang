@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Todo.scss";
 import AddTodo from "./addTodo";
+import EditTodo from "./editTodo";
 
 class ListItems extends React.Component {
   state = {
@@ -115,6 +116,7 @@ class ListItems extends React.Component {
             CLEAR DONE
           </button>
         </div>
+        <EditTodo />
       </div>
     );
   }
