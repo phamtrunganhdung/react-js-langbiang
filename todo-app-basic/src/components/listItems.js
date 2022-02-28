@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/Todo.scss";
 import AddTodo from "./addTodo";
-import ClearTodo from "./clearTodo";
 
 class ListItems extends React.Component {
   state = {
@@ -10,21 +9,21 @@ class ListItems extends React.Component {
         id: "todo1",
         title: "Read React book",
         description: "spend 2 hours reading book every day",
-        checkTitle: false,
+        checked: false,
         showDescription: false,
       },
       {
         id: "todo2",
         title: "Play football",
         description: "play from 4-5 pm",
-        checkTitle: false,
+        checked: false,
         showDescription: false,
       },
       {
         id: "todo3",
         title: "Do homework",
         description: "finish homework",
-        checkTitle: false,
+        checked: false,
         showDescription: false,
       },
     ],
@@ -40,8 +39,8 @@ class ListItems extends React.Component {
   handleCheck = (item) => {
     let checkTit = document.getElementById("tit" + item.id);
     let checkDes = document.getElementById("des" + item.id);
-    item.checkTitle = !item.checkTitle;
-    item.checkTitle === false
+    item.checked = !item.checked;
+    item.checked === false
       ? (checkTit.style.textDecoration = "none") &&
         (checkDes.style.textDecoration = "none")
       : (checkTit.style.textDecoration = "line-through") &&
@@ -52,7 +51,18 @@ class ListItems extends React.Component {
       listTodo: [...this.state.listTodo, todo],
     });
   };
-
+  handleClearDoneTodo = () => {
+    let currentTodo = this.state.listTodo;
+    this.setState({
+      listTodo: currentTodo.filter((item) => item.checked === false),
+    });
+  };
+  handleClearAllTodo = () => {
+    let currentTodo = this.state.listTodo;
+    this.setState({
+      listTodo: currentTodo.filter((item) => item.id === ""),
+    });
+  };
   render() {
     let { listTodo } = this.state;
     return (
@@ -91,7 +101,20 @@ class ListItems extends React.Component {
           );
         })}
 
-        <ClearTodo />
+        <div className="clearTodo">
+          <button
+            className="btn btn-danger"
+            onClick={() => this.handleClearAllTodo()}
+          >
+            CLEAR ALL
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={() => this.handleClearDoneTodo()}
+          >
+            CLEAR DONE
+          </button>
+        </div>
       </div>
     );
   }
