@@ -8,21 +8,21 @@ class ListItems extends React.Component {
       {
         id: "todo1",
         title: "Read React book",
-        description: "spend 2 hours reading book every day",
+        description: "read chapter 3.5",
         checked: false,
         showDescription: false,
       },
       {
         id: "todo2",
         title: "Play football",
-        description: "play from 4-5 pm",
+        description: "play from 4 to 5 pm",
         checked: false,
         showDescription: false,
       },
       {
         id: "todo3",
-        title: "Do homework",
-        description: "finish homework",
+        title: "Watching movie",
+        description: "movie 1",
         checked: false,
         showDescription: false,
       },
@@ -78,10 +78,10 @@ class ListItems extends React.Component {
         listTodo: listTodoCopy,
         editTodo: {},
       });
-
+      document.getElementById("info" + todo.id).style.display = "block";
       return;
     }
-
+    document.getElementById("info" + todo.id).style.display = "none";
     this.setState({
       editTodo: todo,
     });
@@ -128,6 +128,7 @@ class ListItems extends React.Component {
                     <span>
                       <input
                         className="editTodoTitle"
+                        id={"editTit" + item.id}
                         type="text"
                         value={editTodo.title}
                         onChange={(event) =>
@@ -159,7 +160,7 @@ class ListItems extends React.Component {
                 className="btn"
                 onClick={() => this.handleShowDescription(item)}
               >
-                <i className="fa fa-info-circle"></i>
+                <i className="fa fa-info-circle" id={"info" + item.id}></i>
               </button>
               {isEmptyObj === true ? (
                 <span>
@@ -177,6 +178,7 @@ class ListItems extends React.Component {
                     <span>
                       <input
                         className="editTodoDescription"
+                        id={"editDes" + item.id}
                         type="text"
                         value={editTodo.description}
                         onChange={(event) =>
