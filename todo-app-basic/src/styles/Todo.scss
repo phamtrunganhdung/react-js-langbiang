@@ -37,6 +37,15 @@
       border: none;
       background-color: transparent;
     }
+    .editTodoTitle,
+    .editTodoDescription {
+      width: 250px;
+      height: 30px;
+      color: black;
+      border: 1px solid grey;
+      border-radius: 5px;
+      background-color: transparent;
+    }
 
     .todoDescription {
       width: 400px;
@@ -61,6 +70,8 @@
   .addTodo {
     input {
       margin: 5px;
+      border: 1px solid grey;
+      border-radius: 5px;
     }
   }
 

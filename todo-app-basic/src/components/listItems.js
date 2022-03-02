@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/Todo.scss";
 import AddTodo from "./addTodo";
-import EditTodo from "./editTodo";
 
 class ListItems extends React.Component {
   state = {
@@ -28,6 +27,7 @@ class ListItems extends React.Component {
         showDescription: false,
       },
     ],
+    editTodo: {},
   };
 
   handleShowDescription = (item) => {
@@ -64,8 +64,45 @@ class ListItems extends React.Component {
       listTodo: currentTodo.filter((item) => item.id === ""),
     });
   };
+  handleEditTodo = (todo) => {
+    let { listTodo, editTodo } = this.state;
+    let isEmptyObj = Object.keys(editTodo).length === 0;
+    if (isEmptyObj === false && editTodo.id === todo.id) {
+      let listTodoCopy = [...listTodo];
+
+      let objIndex = listTodoCopy.findIndex((item) => item.id === todo.id);
+
+      listTodoCopy[objIndex].title = editTodo.title;
+      listTodoCopy[objIndex].description = editTodo.description;
+      this.setState({
+        listTodo: listTodoCopy,
+        editTodo: {},
+      });
+
+      return;
+    }
+
+    this.setState({
+      editTodo: todo,
+    });
+  };
+  handleOnchangeEditTodoTitle = (event) => {
+    let editTodoCopy = { ...this.state.editTodo };
+    editTodoCopy.title = event.target.value;
+    this.setState({
+      editTodo: editTodoCopy,
+    });
+  };
+  handleOnchangeEditTodoDescription = (event) => {
+    let editTodoCopy = { ...this.state.editTodo };
+    editTodoCopy.description = event.target.value;
+    this.setState({
+      editTodo: editTodoCopy,
+    });
+  };
   render() {
-    let { listTodo } = this.state;
+    let { listTodo, editTodo } = this.state;
+    let isEmptyObj = Object.keys(editTodo).length === 0;
     return (
       <div className="listItems">
         <h3>TO-DO LIST</h3>
@@ -75,15 +112,48 @@ class ListItems extends React.Component {
           return (
             <div className="items" key={item.id}>
               <input type="checkbox" onChange={() => this.handleCheck(item)} />
-              <input
-                className="todoTitle"
-                id={"tit" + item.id}
-                type="text"
-                value={item.title}
-                disabled
-              />
-              <button className="btn">
-                <i className="fa fa-pencil"></i>
+              {isEmptyObj === true ? (
+                <span>
+                  <input
+                    className="todoTitle"
+                    id={"tit" + item.id}
+                    type="text"
+                    value={item.title}
+                    disabled
+                  />
+                </span>
+              ) : (
+                <>
+                  {editTodo.id === item.id ? (
+                    <span>
+                      <input
+                        className="editTodoTitle"
+                        type="text"
+                        value={editTodo.title}
+                        onChange={(event) =>
+                          this.handleOnchangeEditTodoTitle(event)
+                        }
+                      />
+                    </span>
+                  ) : (
+                    <span>
+                      <input
+                        className="todoTitle"
+                        id={"tit" + item.id}
+                        type="text"
+                        value={item.title}
+                        disabled
+                      />
+                    </span>
+                  )}
+                </>
+              )}
+              <button className="btn" onClick={() => this.handleEditTodo(item)}>
+                {isEmptyObj === false && editTodo.id === item.id ? (
+                  <i className="fa fa-save"></i>
+                ) : (
+                  <i className="fa fa-pencil"></i>
+                )}
               </button>
               <button
                 className="btn"
@@ -91,13 +161,42 @@ class ListItems extends React.Component {
               >
                 <i className="fa fa-info-circle"></i>
               </button>
-              <input
-                className="todoDescription"
-                id={"des" + item.id}
-                type="text"
-                value={item.description}
-                disabled
-              />
+              {isEmptyObj === true ? (
+                <span>
+                  <input
+                    className="todoDescription"
+                    id={"des" + item.id}
+                    type="text"
+                    value={item.description}
+                    disabled
+                  />
+                </span>
+              ) : (
+                <>
+                  {editTodo.id === item.id ? (
+                    <span>
+                      <input
+                        className="editTodoDescription"
+                        type="text"
+                        value={editTodo.description}
+                        onChange={(event) =>
+                          this.handleOnchangeEditTodoDescription(event)
+                        }
+                      />
+                    </span>
+                  ) : (
+                    <span>
+                      <input
+                        className="todoDescription"
+                        id={"des" + item.id}
+                        type="text"
+                        value={item.description}
+                        disabled
+                      />
+                    </span>
+                  )}
+                </>
+              )}
             </div>
           );
         })}
@@ -116,7 +215,6 @@ class ListItems extends React.Component {
             CLEAR DONE
           </button>
         </div>
-        <EditTodo />
       </div>
     );
   }
