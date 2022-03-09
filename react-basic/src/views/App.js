@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Users from "../components/Users";
 import About from "../components/About";
+import DetailUser from "../components/DetailUser";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path="/about">
               <About />
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser />
             </Route>
           </Switch>
         </header>
