@@ -17,7 +17,13 @@ class Users extends React.Component {
   };
   handleAddUser = () => {};
   handleEditUser = () => {};
-  handleDeleteUser = () => {};
+  handleDeleteUser = (id) => {
+    axios.delete(`https://reqres.in/api/users/${id}`).then((item) => {
+      this.setState({
+        listUser: this.state.listUser.filter((user) => user.id !== id),
+      });
+    });
+  };
 
   render() {
     let { listUser } = this.state;
@@ -68,7 +74,7 @@ class Users extends React.Component {
                       </button>
                       <button
                         className="btn btn-danger"
-                        onClick={() => this.handleDeleteUser()}
+                        onClick={() => this.handleDeleteUser(item.id)}
                       >
                         Delete
                       </button>
