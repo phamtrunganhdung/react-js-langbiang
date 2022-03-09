@@ -1,0 +1,23 @@
+//CSS from w3school
+a {
+  font-size: large;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(20, 57, 158);
+  background-color: transparent;
+  text-decoration: underline;
+}
+span {
+  cursor: pointer;
+}
+span:hover {
+  color: rgb(20, 57, 158);
+  background-color: transparent;
+  text-decoration: underline;
+}
