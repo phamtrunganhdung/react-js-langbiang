@@ -1,0 +1,40 @@
+Đầu mục các điểm cần học về React FrontEnd
+1) Thư mục node_modules và file package.json là gì
+2) Trình bày quy tắc đặt tên function, tên biến và tên Component
+3) Lifecycle component hoạt động như nào
+4) Thành thạo cách sử dụng và hiểu khi nào cần sử dụng React Hook chính sau useState, useEffect, uselayouteffect, useRef
+5) Hiểu rõ cách sử dụng React Hook nâng cao useMemo, useCallback, useReducer, useContext
+6) Phân biệt ưu/nhược của class component và function component
+7) "export default function A "khác gì với "export function A"
+8) Callback function là gì? cách hoạt động?
+9) Hiểu rõ cách sử dụng React-Redux.
+10) Tại sao cần dùng react-redux, khi nào cần sử dụng và khi nào không nên sử dụng.
+11) Hiểu animation là gì và cách dùng thư viện react-spring
+12) Tại sao phải đặt tên Component là viết hoa đầu từ, nếu viết thường được không, tại sao
+13) Thành thạo sử dụng các component của thư viện Antdesign, input, button, menu, drawer, popover, popconfirm, popup, datepicker, select, table,... Nắm chắc cách bố trí layout sử dụng component Row, Col
+14) Hiểu cách sử dụng thư viện moment, cách format Datetime sang string,...
+15) Trong một array component, tại sao mỗi component phải có unique key
+16) Tại sao luôn nên sử dụng image có format SVG
+17) Nắm về websocket, cách sử dụng thư viện @microsoft/signalr
+18) Cookie là gì, cách sử dụng js-cookie
+19) Để xuất trang in ra trình duyệt, bạn sử dụng thư viện hoặc những cách nào.
+
+Ngoài những kiến thức cơ bản CSS cần nắm, cần nằm các điểm nâng cao sau:
+1) Responsive là gì, giải thích @media only screen and (min-width: 960px) là gì
+2) Hiểu rõ cách xây dựng layout sử dụng liblary Bootstrap
+3) Nhớ tên và hiểu rõ công dụng phần lớn class trong Bootstrap, ví dụ: ps-2 là gì, col-5 khác col-md-5 như thế nào, <div class="col-8 col-lg-1"> giải thích sự thay đổi của element div khi viết class như ví dụ
+4) Thành thạo sử dụng css Flex, Flex-grow-1 là gì
+5) Khi nào thì cần sử dụng thuộc tính css position: absolute
+6) Trong ví dụ ".sidebar > div {  color: red }" ký tự ">" là gì
+7) div { width: calc(100% - 320px) } giải thích cách viết trên
+
+Các kiến thức javascript cần nắm:
+1) Để lấy data từ API ta sử dụng function hoặc thư viện gì
+2) Mô tả ý nghĩa sử dụng của hàm array.push, array.map, array.forEach, array.find, aray.sort, array.filter, array.concat, array.indexof, array.reduce, array.splice
+3) FormData data = new FormData() là gì, khi nào cần sử dụng
+4) JSON.parse(result), JSON.stringify(data) là gì, khi nào cẩn sử dụng
+5) Trong ES6 cách để copy một array hoặc một object ta sử dụng cú pháp như thế nào
+6) Khi lấy data từ API, các method HTTP: GET, POST, PUT, PATCH, DELETE khác nhau như thế nào
+7) setTiemout, setInterval là gì và nêu những trường hợp thực tế cần sử dụng.
+
+
